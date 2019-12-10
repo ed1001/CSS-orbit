@@ -1,24 +1,70 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
 .scene {
-  margin: 200px;
-  width: 200px;
-  height: 200px;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   perspective: 600px;
+  transform-style: preserve-3d;
 }
 
 .cube {
-  width: 100%;
-  height: 100%;
-  position: relative;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
   transform: translateZ(-100px);
   transform-style: preserve-3d;
 }
 
-.orbit-cube {
-  width: 20%;
-  height: 20%;
-  position: relative;
-  transform: translateZ(-100px);
-  transform-style: preserve-3d;
+.plane {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  width: 400px;
+  height: 400px;
+  opacity: 0.8;
+  border: 2px solid black;
+  background-color: black;
+  transform: rotateX(90deg);
 }
 
 .cube__face {
@@ -36,9 +82,3 @@
 .cube__face--top    { transform: rotateX( 90deg) translateZ(100px); background-color: purple; }
 .cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); background-color: yellow; }
 
-.orbit-cube__face--front  { transform: rotateY(  0deg) translateZ(20px); background-color: red; }
-.orbit-cube__face--right  { transform: rotateY( 90deg) translateZ(20px); background-color: green; }
-.orbit-cube__face--back   { transform: rotateY(180deg) translateZ(20px); background-color: blue; }
-.orbit-cube__face--left   { transform: rotateY(-90deg) translateZ(20px); background-color: orange; }
-.orbit-cube__face--top    { transform: rotateX( 90deg) translateZ(20px); background-color: purple; }
-.orbit-cube__face--bottom { transform: rotateX(-90deg) translateZ(20px); background-color: yellow; }
