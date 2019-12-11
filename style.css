@@ -55,16 +55,20 @@ body {
   transform-style: preserve-3d;
 }
 
-.plane {
+.orbit {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.orbit-cube {
   position: absolute;
-  top: calc(50% - 100px);
-  left: calc(50% - 100px);
-  width: 400px;
-  height: 400px;
-  opacity: 0.8;
-  border: 2px solid black;
-  background-color: black;
-  transform: rotateX(90deg);
+  width: 50px;
+  height: 50px;
+  top: calc(50% - 25px);
+  left: calc(50% - 300px);
+  transform: translateZ(-50px);
+  transform-style: preserve-3d;
 }
 
 .cube__face {
@@ -82,3 +86,9 @@ body {
 .cube__face--top    { transform: rotateX( 90deg) translateZ(100px); background-color: purple; }
 .cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); background-color: yellow; }
 
+.orbit-cube__face--front  { transform: rotateY(  0deg) translateZ(25px); background-color: red; }
+.orbit-cube__face--right  { transform: rotateY( 90deg) translateZ(25px); background-color: green; }
+.orbit-cube__face--back   { transform: rotateY(180deg) translateZ(25px); background-color: blue; }
+.orbit-cube__face--left   { transform: rotateY(-90deg) translateZ(25px); background-color: orange; }
+.orbit-cube__face--top    { transform: rotateX( 90deg) translateZ(25px); background-color: purple; }
+.orbit-cube__face--bottom { transform: rotateX(-90deg) translateZ(25px); background-color: yellow; }
