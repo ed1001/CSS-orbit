@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .scene {
   position: relative;
   width: 100vw;
