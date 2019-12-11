@@ -6,12 +6,10 @@ let rotationX = 0;
 let rotationY = 0;
 
 const rotateCube = () => {
-  rotationX += 1;
-  rotationY += 2;
-  cube.style.transform = `rotateY(${rotationX}deg)`;
-  cube.style.transform += `rotateX(${rotationY}deg)`;
-  orbitCube.style.transform = `rotateY(${-rotationX}deg)`;
-  orbitCube.style.transform += `rotateX(${-rotationY}deg)`;
+  rotationX += 2;
+  rotationY += 3;
+  Object.assign(cube.style, {transform: `rotateY(${rotationX}deg) rotateX(${rotationY}deg)`})
+  Object.assign(orbitCube.style, {transform: `rotateY(${-rotationX}deg) rotateX(${-rotationY}deg)`})
   orbit.style.transform = `rotateY(${rotationY}deg)`;
   window.requestAnimationFrame(rotateCube);
 }

@@ -1,42 +1,3 @@
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default padding */
-ul[class],
-ol[class] {
-  padding: 0;
-}
-
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
 .scene {
   position: relative;
   width: 100vw;
@@ -66,29 +27,53 @@ body {
   width: 50px;
   height: 50px;
   top: calc(50% - 25px);
-  left: calc(50% - 300px);
+  left: calc(50% - 250px);
   transform: translateZ(-50px);
   transform-style: preserve-3d;
 }
 
-.cube__face {
+.side {
   position: absolute;
   width: 100%;
   height: 100%;
-  opacity: 0.8;
-  border: 2px solid black;
+  opacity: 0.7;
+  animation: modulate-edge 6s infinite;
 }
 
-.cube__face--front  { transform: rotateY(  0deg) translateZ(100px); background-color: red; }
-.cube__face--right  { transform: rotateY( 90deg) translateZ(100px); background-color: green; }
-.cube__face--back   { transform: rotateY(180deg) translateZ(100px); background-color: blue; }
-.cube__face--left   { transform: rotateY(-90deg) translateZ(100px); background-color: orange; }
-.cube__face--top    { transform: rotateX( 90deg) translateZ(100px); background-color: purple; }
-.cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); background-color: yellow; }
+@keyframes modulate-edge {
+  0% {
+    width: 100%;
+    height: 100%;
+  }
 
-.orbit-cube__face--front  { transform: rotateY(  0deg) translateZ(25px); background-color: red; }
-.orbit-cube__face--right  { transform: rotateY( 90deg) translateZ(25px); background-color: green; }
-.orbit-cube__face--back   { transform: rotateY(180deg) translateZ(25px); background-color: blue; }
-.orbit-cube__face--left   { transform: rotateY(-90deg) translateZ(25px); background-color: orange; }
-.orbit-cube__face--top    { transform: rotateX( 90deg) translateZ(25px); background-color: purple; }
-.orbit-cube__face--bottom { transform: rotateX(-90deg) translateZ(25px); background-color: yellow; }
+  15% {
+    width: 75%;
+    height: 75%;
+    border-radius: 20%;
+  }
+
+  50% {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    opacity: 0.7;
+  }
+
+  85% {
+    opacity: 1;
+  }
+}
+
+.cube div:nth-child(1) { transform: rotateY(  0deg) translateZ(100px); background-color: red; }
+.cube div:nth-child(2) { transform: rotateY( 90deg) translateZ(100px); background-color: green; }
+.cube div:nth-child(3) { transform: rotateY(180deg) translateZ(100px); background-color: blue; }
+.cube div:nth-child(4) { transform: rotateY(-90deg) translateZ(100px); background-color: orange; }
+.cube div:nth-child(5) { transform: rotateX( 90deg) translateZ(100px); background-color: purple; }
+.cube div:nth-child(6) { transform: rotateX(-90deg) translateZ(100px); background-color: yellow; }
+
+.orbit-cube div:nth-child(1) { transform: rotateY(  0deg) translateZ(25px); background-color: red; }
+.orbit-cube div:nth-child(2) { transform: rotateY( 90deg) translateZ(25px); background-color: green; }
+.orbit-cube div:nth-child(3) { transform: rotateY(180deg) translateZ(25px); background-color: blue; }
+.orbit-cube div:nth-child(4) { transform: rotateY(-90deg) translateZ(25px); background-color: orange; }
+.orbit-cube div:nth-child(5) { transform: rotateX( 90deg) translateZ(25px); background-color: purple; }
+.orbit-cube div:nth-child(6) { transform: rotateX(-90deg) translateZ(25px); background-color: yellow; }
